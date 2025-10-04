@@ -5,36 +5,25 @@ This project implements a **Machine Learning model to detect phishing web pages*
 
 ## 📊 Dataset
 - **File:** `web-page-phishing.csv`  
-- **Description:** Contains features extracted from URLs/web pages, along with labels indicating whether a page is **phishing** or **legitimate**.  
-- **Size:** ~10000 × 20 
-- **Features Examples:**  
-  - URL length  
-  - Presence of `https`  
-  - Number of subdomains  
-  - Special characters (`@`, `-`, `//`)  
-  - Domain-based features  
+- **Description:** Each row represents one website’s URL. The features are numerical counts of certain symbols or characteristics in the URL 
+- **Size:** 100,077 × 20 
 - **Target:**  
   - `1` → Phishing  
   - `0` → Legitimate  
 
-## ⚙️ Workflow
-1. **Data Preprocessing**  
-   - Handled missing values & inconsistencies  
-   - Feature encoding & normalization  
+## ⚙️ Models and Performance
 
-2. **Exploratory Data Analysis (EDA)**  
-   - Statistical summary of dataset  
-   - Correlation heatmap & feature importance visualization  
+| Model                | Accuracy | ROC-AUC |
+|-----------------------|----------|---------|
+| Logistic Regression   | **85.63%** | 0.93 |
+| Random Forest         | **89.09%** | 0.95 |
+| XGBoost (Best Model)  | **89.18%** | 0.96 |
 
-3. **Model Building**  
-   - Trained ML models (e.g., Logistic Regression, Decision Tree, Random Forest, etc.)  
-   - Hyperparameter tuning for better accuracy  
+**XGBoost provided the most balanced performance across precision, recall, and F1-score.**
 
-4. **Evaluation**  
-   - Metrics used: Accuracy, Precision, Recall, F1-score  
-   - Confusion Matrix visualization  
+---
 
 ## 📈 Results
-- Achieved **high accuracy (e.g., ~95%)** in detecting phishing websites.  
-- Random Forest performed best among tested models.  
-- Visualization of results included confusion matrix and ROC curve. 
+- Achieved **~89% accuracy** with the best model (XGBoost).  
+- Metrics Used: Accuracy, Confusion Matrix, Classification Report, ROC-AUC.
+- Findings: Ensemble models (Random Forest, XGBoost) outperform linear models.
